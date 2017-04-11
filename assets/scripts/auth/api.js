@@ -20,3 +20,9 @@ const signIn = (data) => {
     data
   })
 }
+
+
+module.exports = {
+  signUp,
+  signIn
+}
