@@ -67,7 +67,7 @@ const checkForWinner = function () {
   }
 }
 
-$('.box[data-id]').on('click', function () {
+const gameEngine = function () {
   if (currentPlayer === 'x' && gameArray[this.dataset.id] === '' && win === false) {
     $(this).text('x')
     moveCount += 1
@@ -86,5 +86,12 @@ $('.box[data-id]').on('click', function () {
     $('.theDraw').text('DRAW!! Play again.')
     $('.theDraw').show()
   }
-})
-console.log('gameArray')
+}
+
+const addHandlers = () => {
+  $('.box[data-id]').on('click', gameEngine)
+}
+
+module.exports = {
+  addHandlers
+}
