@@ -20,7 +20,7 @@ let win = false
   // console.log(gameArray)
 // })
 
-$('.new-game').on('click', function () {
+const startGame = function () {
   $('.box[data-id]').text('')
   gameArray = ['', '', '', '', '', '', '', '', '']
   moveCount = 1
@@ -29,7 +29,7 @@ $('.new-game').on('click', function () {
   currentPlayer = 'x'
   win = false
   $('.container').show()
-})
+}
 // starting below is a function to check the winner
 const checkForWinner = function () {
   if (gameArray[0] === gameArray[1] && gameArray[2] && gameArray[0] !== '') {
@@ -90,6 +90,7 @@ const gameEngine = function () {
 
 const addHandlers = () => {
   $('.box[data-id]').on('click', gameEngine)
+  $('.new-game').on('click', startGame)
 }
 
 module.exports = {
