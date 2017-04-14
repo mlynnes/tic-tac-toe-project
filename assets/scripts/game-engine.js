@@ -20,7 +20,7 @@ let win = false
   // console.log(gameArray)
 // })
 
-$('.button').on('click', function () {
+$('.new-game').on('click', function () {
   $('.box[data-id]').text('')
   gameArray = ['', '', '', '', '', '', '', '', '']
   moveCount = 1
@@ -87,3 +87,4 @@ $('.box[data-id]').on('click', function () {
     $('.theDraw').show()
   }
 })
+console.log('gameArray')
