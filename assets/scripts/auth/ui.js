@@ -18,6 +18,7 @@ const signInSuccess = (response) => {
   console.log('You signed in. and response is', response)
   store.user = response.user
   $('.container').show()
+  $('#change-password').show()
 }
 
 const signInFailure = (data) => {
