@@ -9,8 +9,9 @@ const signUpSuccess = (data) => {
   $('#sign-up').hide()
 }
 
-const signUpFailure = (error) => {
-  console.error(error)
+const signUpFailure = () => {
+  $('.authMessage').text('Sign up was unsuccessful, please try again.')
+  $('.authMessage').show()
 }
 
 const signInSuccess = (response) => {
