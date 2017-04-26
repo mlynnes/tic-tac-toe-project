@@ -19,6 +19,11 @@ const signInSuccess = (response) => {
   store.user = response.user
   $('.container').show()
   $('#change-password').show()
+  $('#sign-out').show()
+  $('#new-game').show()
+  $('#get-games').show()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
 }
 
 const signInFailure = (data) => {
