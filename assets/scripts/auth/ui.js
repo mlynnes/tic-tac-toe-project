@@ -4,6 +4,9 @@ const store = require('../store.js')
 
 const signUpSuccess = (data) => {
   console.log(data)
+  $('.authMessage').text('Sign up was successful, please sign in.')
+  $('.authMessage').show()
+  $('#sign-up').hide()
 }
 
 const signUpFailure = (error) => {
