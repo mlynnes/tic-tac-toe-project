@@ -55,6 +55,7 @@ const onGetGames = function (event) {
   .catch(ui.showGameFailure)
 }
 const addHandlers = () => {
+  $('.container').hide()
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
