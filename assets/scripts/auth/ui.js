@@ -43,6 +43,23 @@ const createGameFailure = (error) => {
   console.error(error)
 }
 
+const showGamesSuccess = (response) => {
+  if (response.games.length === 0) {
+    $('.getText').text('You haven\'t played any games yet :(')
+    $('.getText').show()
+  } else if (response.games.length === 1) {
+    $('.getText').text('You played ' + response.games.length + ' game')
+    $('.getText').show()
+  } else {
+    $('.getText').text('You played ' + response.games.length + ' games')
+    $('.getText').show()
+  }
+}
+const showGamesFailure = () => {
+  $('.getText').text('Failed to display game count')
+  $('.getText').show()
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -53,5 +70,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   createGameSuccess,
-  createGameFailure
+  createGameFailure,
+  showGamesSuccess,
+  showGamesFailure
 }
