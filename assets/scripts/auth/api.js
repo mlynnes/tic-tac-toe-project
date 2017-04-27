@@ -47,7 +47,7 @@ const signOut = () => {
 
 const createGame = (data) => {
   return $.ajax({
-    url: config.apiOrigin + '/games' + store.game.id,
+    url: config.apiOrigin + '/games', // + store.game.id,
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token

@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const game = require('../game-engine.js')
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -56,6 +57,7 @@ const signOutFailure = (error) => {
 
 const createGameSuccess = (data) => {
   store.game = data.game
+  game.startGame()
 }
 
 const createGameFailure = (error) => {
