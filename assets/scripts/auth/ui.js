@@ -22,12 +22,16 @@ const signInSuccess = (response) => {
   $('#sign-out').show()
   $('#new-game').show()
   $('#get-games').show()
+  $('.message').text('You have successfully signed in!')
+  $('.message').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
 }
 
 const signInFailure = (data) => {
   console.log('You failed to sign in')
+  $('.message').text('Sign in failed, please try again.')
+  $('.message').show()
 }
 
 const changePasswordSuccess = (response) => {
