@@ -45,19 +45,20 @@ const signOut = () => {
   })
 }
 
-const createGame = () => {
+const createGame = (data) => {
   return $.ajax({
-    url: config.apiOrigin + '/games',
+    url: config.apiOrigin + '/games' + store.game.id,
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data
   })
 }
 
 const getGames = (data) => {
   return $.ajax({
-    url: config.apiOrigin + '/games/',
+    url: config.apiOrigin + '/games/' + store.game.id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token }

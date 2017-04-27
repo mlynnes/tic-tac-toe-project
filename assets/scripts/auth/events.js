@@ -63,7 +63,9 @@ const addHandlers = () => {
   $('#sign-out').hide()
   $('#sign-out').on('submit', onSignOut)
   $('#new-game').hide()
+  $('#new-game').on('submit', onCreateGame)
   $('#get-games').hide()
+  $('#get-games').on('submit', onGetGames)
 }
 
 module.exports = {
