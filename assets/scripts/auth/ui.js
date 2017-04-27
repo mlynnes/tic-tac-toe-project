@@ -36,10 +36,14 @@ const signInFailure = (data) => {
 
 const changePasswordSuccess = (response) => {
   console.log('response is', response)
+  $('.password-message').text('Password was changed successfully!')
+  $('.password-message').show()
 }
 
 const changePasswordFailure = (error) => {
   console.error(error)
+  $('.password-message').text('Password was not succesfully changed, please try again!')
+  $('.password-message').show()
 }
 
 const signOutSuccess = (success) => {
