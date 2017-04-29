@@ -39,7 +39,7 @@ const onSignOut = function (event) {
   .catch(ui.signOutFailure)
 }
 
-const onCreateGame = function (event) {
+const onCreateGame = function () {
   event.preventDefault()
   console.log('inside onCreateGame')
   api.createGame()
@@ -47,13 +47,30 @@ const onCreateGame = function (event) {
   .catch(ui.createGameFailure)
 }
 
-const onGetGames = function (event) {
+const onUpdateGame = function (data) {
+  event.preventDefault()
+  console.log('updating game')
+  api.updateGame(data)
+  .then(ui.updateGameSuccess)
+  .catch(ui.updateGameFailure)
+}
+
+const onGetGames = function () {
   event.preventDefault()
   console.log('inside onGetGames')
   api.getGames()
-  .then(ui.showGetGameSuccess)
-  .catch(ui.showGameFailure)
+  .then(ui.getGamesSuccess)
+  .catch(ui.getsGamesFailure)
 }
+
+// const onGetGame = function (event) {
+//   const data = getFormFields(this)
+//   event.preventDefault()
+//   api.getGame(data)
+//     .then(ui.getGameSuccess)
+//     .catch(ui.getGameFailure)
+// }
+
 const addHandlers = () => {
   $('.container').hide()
   $('#sign-up').on('submit', onSignUp)
@@ -63,11 +80,12 @@ const addHandlers = () => {
   $('#sign-out').hide()
   $('#sign-out').on('submit', onSignOut)
   $('#new-game').hide()
-  $('#new-game').on('submit', onCreateGame)
+  $('#new-game').on('click', onCreateGame)
   $('#get-games').hide()
-  $('#get-games').on('submit', onGetGames)
+  $('#get-games').on('click', onGetGames)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onUpdateGame
 }

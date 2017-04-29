@@ -47,23 +47,46 @@ const signOut = () => {
 
 const createGame = (data) => {
   return $.ajax({
-    url: config.apiOrigin + '/games', // + store.game.id,
+    url: config.apiOrigin + '/games/', // + store.game.id,
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    data: {}
   })
 }
 
-const getGames = (data) => {
+const updateGame = (data) => {
+  console.log('updateGame', data)
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.game.id,
-    method: 'GET',
+    url: config.apiOrigin + '/games/ ' + store.game.id,
+    method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + store.user.token }
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
   })
 }
+
+const getGames = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/games/', // + store.game.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+// const getGame = function (data) {
+//   return $.ajax({
+//     method: 'GET',
+//     url: config.apiOrigin + '/games?over=true' + data.game.id,
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
 
 module.exports = {
   signUp,
@@ -71,5 +94,7 @@ module.exports = {
   changePassword,
   signOut,
   createGame,
+  updateGame,
   getGames
+  // getGame
 }

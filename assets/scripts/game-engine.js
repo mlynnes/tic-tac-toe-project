@@ -1,5 +1,7 @@
 'use strict'
 
+const updateGame = require('../scripts/auth/events.js').onUpdateGame
+
 let currentPlayer = 'x'
 let moveCount = 1
 let gameArray = ['', '', '', '', '', '', '', '', '']
@@ -86,6 +88,16 @@ const gameEngine = function () {
     $('.theDraw').text('DRAW!! Play again.')
     $('.theDraw').show()
   }
+  const data = {
+    'game': {
+      'cell': {
+        'index': this.dataset.id,
+        'value': currentPlayer
+      },
+      'over': moveCount || win
+    }
+  }
+  updateGame(data)
 }
 
 const addHandlers = () => {
