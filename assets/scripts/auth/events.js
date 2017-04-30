@@ -58,6 +58,7 @@ const onGetGames = function () {
 }
 
 const addHandlers = () => {
+  $('.play').hide()
   $('.container').hide()
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
