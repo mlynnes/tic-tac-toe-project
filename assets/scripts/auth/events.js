@@ -7,7 +7,6 @@ const ui = require('./ui')
 const onSignUp = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log('onSignUp triggered')
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -24,7 +23,6 @@ const onSignIn = function (event) {
 const onChangePassword = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log('inside onChangePassword')
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
@@ -33,7 +31,6 @@ const onChangePassword = function (event) {
 const onSignOut = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log('inside onSignOut')
   api.signOut(data)
   .then(ui.signOutSuccess)
   .catch(ui.signOutFailure)
@@ -41,7 +38,6 @@ const onSignOut = function (event) {
 
 const onCreateGame = function () {
   event.preventDefault()
-  console.log('inside onCreateGame')
   api.createGame()
   .then(ui.createGameSuccess)
   .catch(ui.createGameFailure)
@@ -49,7 +45,6 @@ const onCreateGame = function () {
 
 const onUpdateGame = function (data) {
   event.preventDefault()
-  console.log('updating game')
   api.updateGame(data)
   .then(ui.updateGameSuccess)
   .catch(ui.updateGameFailure)
@@ -57,19 +52,10 @@ const onUpdateGame = function (data) {
 
 const onGetGames = function () {
   event.preventDefault()
-  console.log('inside onGetGames')
   api.getGames()
   .then(ui.getGamesSuccess)
   .catch(ui.getsGamesFailure)
 }
-
-// const onGetGame = function (event) {
-//   const data = getFormFields(this)
-//   event.preventDefault()
-//   api.getGame(data)
-//     .then(ui.getGameSuccess)
-//     .catch(ui.getGameFailure)
-// }
 
 const addHandlers = () => {
   $('.container').hide()
