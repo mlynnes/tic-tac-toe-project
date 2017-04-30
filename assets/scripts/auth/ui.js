@@ -22,7 +22,7 @@ const signInSuccess = (response) => {
   $('#new-game').show()
   $('#get-games').show()
   $('.message').text('You have successfully signed in! Press New Game to start!')
-  $('.message').show()
+  $('.message').show().delay(5000).fadeOut()
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('.authMessage').hide()
@@ -48,6 +48,14 @@ const changePasswordFailure = (error) => {
 
 const signOutSuccess = (success) => {
   console.log('Succesful sign out')
+  $('#change-password').hide()
+  $('#get-games').hide()
+  $('#new-game').hide()
+  $('#sign-out').hide()
+  $('.container').hide()
+  $('.message').hide()
+  $('#sign-up').show()
+  $('#sign-in').show()
 }
 
 const signOutFailure = (error) => {
