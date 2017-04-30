@@ -3,7 +3,7 @@
 const store = require('../store.js')
 
 const signUpSuccess = (data) => {
-  console.log(data)
+  // console.log(data)
   $('.authMessage').text('Sign up was successful, please sign in.')
   $('.authMessage').show()
   $('#sign-up').hide()
@@ -22,7 +22,7 @@ const signInSuccess = (response) => {
   $('#new-game').show()
   $('#get-games').show()
   $('.message').text('You have successfully signed in! Press New Game to start!')
-  $('.message').show().delay(5000).fadeOut()
+  $('.message').show().delay(4000).fadeOut()
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('.authMessage').hide()
@@ -37,7 +37,7 @@ const signInFailure = (data) => {
 const changePasswordSuccess = (response) => {
   console.log('response is', response)
   $('.password-message').text('Password was changed successfully!')
-  $('.password-message').show()
+  $('.password-message').show().delay(4000).fadeOut()
 }
 
 const changePasswordFailure = (error) => {

@@ -75,7 +75,7 @@ const addHandlers = () => {
   $('.container').hide()
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#change-password').hide() // $('#change-password').on('submit', onChangePassword)
+  $('#change-password').hide()
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').hide()
   $('#sign-out').on('submit', onSignOut)

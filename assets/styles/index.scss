@@ -6,14 +6,21 @@ h2 {
 }
 
 .container {
+  width: 500px;
+  position: relative;
   margin: 0 auto;
+  line-height: 1.4em;
   text-align: center;
   font-size: 60px;
+}
+
+@media only screen and (max-width: 479px){
+
 }
 
 .box {
   border: 1px solid black;
   height: 100px;
-  width: 200px;
+  width: 100px;
   margin: 0 auto;
 }
