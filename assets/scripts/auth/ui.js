@@ -47,6 +47,7 @@ const signOutSuccess = (success) => {
   $('#get-games').hide()
   $('#new-game').hide()
   $('#sign-out').hide()
+  $('.game-declaration').hide()
   $('.container').hide()
   $('.play').hide()
   $('.message').hide()
@@ -78,6 +79,8 @@ const updateGameFailure = () => {}
 const getGamesSuccess = (response) => {
   if (response.games.length === 0) {
     $('.getText').text('You have not played any games. To play, press New Game')
+  } else if (response.games.length === 1) {
+    $('.getText').text('You have played ' + response.games.length + ' game!')
   } else {
     $('.getText').text('You have played ' + response.games.length + ' games!')
   }
