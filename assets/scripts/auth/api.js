@@ -4,7 +4,6 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const signUp = (data) => {
-  console.log('data is', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up',
     method: 'POST',
@@ -13,7 +12,6 @@ const signUp = (data) => {
 }
 
 const signIn = (data) => {
-  console.log('inside signIn, data is', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-in',
     method: 'POST',
@@ -22,7 +20,6 @@ const signIn = (data) => {
 }
 
 const changePassword = (data) => {
-  console.log('inside changePassword, data is', data)
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',
@@ -34,7 +31,6 @@ const changePassword = (data) => {
 }
 
 const signOut = () => {
-  console.log('inside signOut, data is:')
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',
@@ -47,7 +43,7 @@ const signOut = () => {
 
 const createGame = (data) => {
   return $.ajax({
-    url: config.apiOrigin + '/games/', // + store.game.id,
+    url: config.apiOrigin + '/games/',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -57,7 +53,6 @@ const createGame = (data) => {
 }
 
 const updateGame = (data) => {
-  console.log('updateGame', data)
   return $.ajax({
     url: config.apiOrigin + '/games/ ' + store.game.id,
     method: 'PATCH',
@@ -70,23 +65,13 @@ const updateGame = (data) => {
 
 const getGames = () => {
   return $.ajax({
-    url: config.apiOrigin + '/games/', // + store.game.id,
+    url: config.apiOrigin + '/games/',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
 }
-
-// const getGame = function (data) {
-//   return $.ajax({
-//     method: 'GET',
-//     url: config.apiOrigin + '/games?over=true' + data.game.id,
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
 
 module.exports = {
   signUp,
@@ -96,5 +81,4 @@ module.exports = {
   createGame,
   updateGame,
   getGames
-  // getGame
 }

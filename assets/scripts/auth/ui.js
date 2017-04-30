@@ -3,63 +3,58 @@
 const store = require('../store.js')
 
 const signUpSuccess = (data) => {
-  // console.log(data)
   $('.authMessage').text('Sign up was successful, please sign in.')
   $('.authMessage').show()
   $('#sign-up').hide()
 }
 
 const signUpFailure = () => {
-  $('.authMessage').text('Sign up was unsuccessful, please try again.')
+  $('.authMessage').text('This email has already been used or your passwords did not match. Please try again!')
   $('.authMessage').show()
 }
 
 const signInSuccess = (response) => {
-  console.log('You signed in. and response is', response)
   store.user = response.user
   $('#change-password').show()
   $('#sign-out').show()
   $('#new-game').show()
   $('#get-games').show()
   $('.message').text('You have successfully signed in! Press New Game to start!')
-  $('.message').show().delay(4000).fadeOut()
+  $('.message').show().delay(5000).fadeOut()
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('.authMessage').hide()
 }
 
 const signInFailure = (data) => {
-  console.log('You failed to sign in')
   $('.message').text('Please check your username or password and try again.')
   $('.message').show()
 }
 
 const changePasswordSuccess = (response) => {
-  console.log('response is', response)
   $('.password-message').text('Password was changed successfully!')
-  $('.password-message').show().delay(4000).fadeOut()
+  $('.password-message').show().delay(5000).fadeOut()
 }
 
-const changePasswordFailure = (error) => {
-  console.error(error)
+const changePasswordFailure = () => {
   $('.password-message').text('Your original password was incorrect, please try again!')
   $('.password-message').show()
 }
 
 const signOutSuccess = (success) => {
-  console.log('Succesful sign out')
   $('#change-password').hide()
   $('#get-games').hide()
   $('#new-game').hide()
   $('#sign-out').hide()
   $('.container').hide()
   $('.message').hide()
+  $('.message').text('Come back and play again soon!')
+  $('.message').show().delay(5000).fadeOut()
   $('#sign-up').show()
   $('#sign-in').show()
 }
 
-const signOutFailure = (error) => {
-  console.error(error)
+const signOutFailure = () => {
 }
 
 const createGameSuccess = (data) => {
@@ -67,22 +62,17 @@ const createGameSuccess = (data) => {
   const engine = require('../game-engine.js')
   engine.startGame()
   $('.container').show()
-  console.log('game created')
 }
 
-const createGameFailure = (error) => {
-  console.error(error)
+const createGameFailure = () => {
 }
 
-const updateGameSuccess = (response) => {
-  // store.game = response.game
-  console.log('inside updateGame', response)
+const updateGameSuccess = () => {
 }
 
 const updateGameFailure = () => {}
 
 const getGamesSuccess = (response) => {
-  console.log('you have recieved a game', response)
   if (response.games.length === 0) {
     $('.getText').text('You have not played any games. To play, press New Game')
   } else {
@@ -90,8 +80,7 @@ const getGamesSuccess = (response) => {
   }
   $('.getText').show()
 }
-const getGamesFailure = (error) => {
-  console.error(error)
+const getGamesFailure = () => {
   $('.getText').text('Failed to display game count.')
   $('.getText').show()
 }
