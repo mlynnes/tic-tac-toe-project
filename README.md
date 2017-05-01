@@ -30,6 +30,7 @@ http://imgur.com/a/dFzLV
 - Provided Game Api
 
 ## Unsolved Problems
-- Though my app is functional, it seems to be sending data twice whenever the PATCH method is used. This does not impact the statistics of the game, but I would like to fix that first.
+- Though my app is functional, it seems to be sending data twice whenever the PATCH method is used. This does not impact the statistics of the game, but I would like to fix that first. (Fixed this last minute)
 - Since I was more concerned about the game and api working, I did not include as much UI focus and styling as I would have liked. In fact, it is pretty bare bones.
 - I would like to go back and make this elegant and alot more user friendly.
+- I would also like to return to this and write more modular code. I know there are large bits that could be broken down into shorter, easier to read lines.
